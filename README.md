@@ -9,7 +9,6 @@ A simple RPG game built in C++ using [Raylib](https://www.raylib.com/) for graph
 
 ## Prerequisites
 
-- **Raylib**: Make sure Raylib is installed. You can find installation instructions on [Raylib's GitHub](https://github.com/raysan5/raylib).
 - **CMake**: Ensure CMake is installed. You can download it from [here](https://cmake.org/download/).
 - **VS Code**: Download [Visual Studio Code](https://code.visualstudio.com/) for a simple and efficient development environment.
 
