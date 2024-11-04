@@ -22,16 +22,16 @@ A simple RPG game built in C++ using [Raylib](https://www.raylib.com/) for graph
 
 2. Configure the Project with CMake
 
-    Open the project folder in VS Code.
-    Go to the Command Palette (Ctrl+Shift+P) and select CMake: Configure.
-    Choose a build directory (e.g., build/).
-    Select your preferred compiler (e.g., gcc, clang, or MSVC on Windows).
-    Build the Project
+    - Open the project folder in VS Code.
+    - Go to the Command Palette (Ctrl+Shift+P) and select CMake: Configure.
+    - Choose a build directory (e.g., build/).
+    - Select your preferred compiler (e.g., gcc, clang, or MSVC on Windows).
+    - Build the Project
 
 3. In the Command Palette, choose CMake: Build to compile the project.
     
-    If there are no errors, the executable should be available in the build/ directory.
-    Run the Game
+    - If there are no errors, the executable should be available in the build/ directory.
+    - Run the Game
 
 4. In the terminal, navigate to the build/ directory and run:
 ```bash
