@@ -1,37 +1,27 @@
 #include <iostream>
-#include "raylib-cpp.hpp"
-
-int screenWidth = 800;
-int screenHeight = 450;
-
-void UpdateDrawFrame(void);     // Update and Draw one frame
+#include "raylib.h"
 
 int main()
 {
-    raylib::Window window(screenWidth, screenHeight, "raylib-cpp [core] example - basic window");
+    const int screenWidth = 800;
+    const int screenHeight = 450;
+
+    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     SetTargetFPS(60);
 
-    // Define the camera to look into our 3d world
-    raylib::Camera camera({ 0.2f, 0.4f, 0.2f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }, 45.0f);
-
-    // Main game loop
-    while (!window.ShouldClose())    // Detect window close button or ESC key
+    while (!WindowShouldClose())
     {
-        UpdateDrawFrame();
-    }
-
-    return 0;
-}
-
-
-void UpdateDrawFrame(void)
-{
-    BeginDrawing();
+        BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Congrats! You created your first raylib-cpp window!", 160, 200, 20, LIGHTGRAY);
+        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
-    EndDrawing();
+        EndDrawing();
+    }
+
+    CloseWindow(); // Close window and OpenGL context
+
+    return 0;
 }
