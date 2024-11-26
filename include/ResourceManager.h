@@ -27,6 +27,7 @@ public:
     GameFont MediumText;
     GameFont BigText;
 
+    int animsCount = 0;
     Model model;
     ModelAnimation *animations;
 

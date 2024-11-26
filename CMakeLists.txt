@@ -11,6 +11,7 @@ if (NOT raylib_FOUND)
     FetchContent_Declare(
         raylib
         GIT_REPOSITORY https://github.com/raysan5/raylib.git
+        GIT_TAG 5.5
         GIT_SHALLOW 1
     )
     FetchContent_MakeAvailable(raylib)
@@ -32,6 +33,14 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND} -E copy_directory 
   ${CMAKE_SOURCE_DIR}/assets 
   ${CMAKE_BINARY_DIR}/$<CONFIG>/assets
+)
+
+add_custom_command(
+  TARGET playground 
+  POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory 
+  ${CMAKE_SOURCE_DIR}/assets 
+  ${CMAKE_BINARY_DIR}/assets
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib)

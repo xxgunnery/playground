@@ -56,7 +56,6 @@ void Game::Init()
 
 void Game::Update()
 {
-    framesCounter++;
 
     UpdateCamera(&camera, CAMERA_ORBITAL);
 
@@ -87,7 +86,10 @@ void Game::Update()
         UpdateLightValues(shader, lights[i]);
     }
 
+    std::cout << "Drawing!" << std::endl;
     Draw();
+
+    framesCounter++;
 }
 
 void Game::Draw()
@@ -104,7 +106,13 @@ void Game::Draw()
     DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, WHITE);
 
     DrawModel(ResourceManager.model, {5, 1, 0}, 1.0f, WHITE);
-    UpdateModelAnimation(ResourceManager.model, *ResourceManager.animations, framesCounter);
+
+    std::cout << "Updating model animation with frame " << framesCounter << std::endl;
+    std::cout << "Name/FrameCount/BoneCount: " << ResourceManager.animations[0].name << " - " << ResourceManager.animations[0].frameCount << " - " << ResourceManager.animations[0].boneCount << std::endl;
+    std::cout << "MaterialCount: " << ResourceManager.model.materialCount << std::endl;
+
+    std::cout << "Is Model Anim Valid?: " << IsModelAnimationValid(ResourceManager.model, ResourceManager.animations[0]) << std::endl;
+    UpdateModelAnimation(ResourceManager.model, ResourceManager.animations[0], framesCounter);
 
     EndShaderMode();
 
@@ -125,5 +133,6 @@ void Game::Draw()
 
 void Game::Cleanup()
 {
+    UnloadModelAnimations(ResourceManager.animations, ResourceManager.animsCount);
     UnloadShader(shader);
 }

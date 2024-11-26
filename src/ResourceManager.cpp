@@ -35,6 +35,5 @@ void ResourceManager::LoadModels()
 
     model = LoadModel(modelPath.c_str()); // Load model from file
 
-    int animCount = 3;
-    animations = LoadModelAnimations("assets/models/warrior.glb", &animCount); // Load model animations from file
+    animations = LoadModelAnimations(modelPath.c_str(), &animsCount); // Load model animations from file
 }
