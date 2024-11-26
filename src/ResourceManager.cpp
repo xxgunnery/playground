@@ -31,7 +31,7 @@ void ResourceManager::LoadModels()
     bool useM3d = false;
 
     std::string extension = useM3d ? ".m3d" : ".glb";
-    std::string modelPath = "assets/models/warrior" + extension;
+    std::string modelPath = "assets/models/deer" + extension;
 
     model = LoadModel(modelPath.c_str()); // Load model from file
 

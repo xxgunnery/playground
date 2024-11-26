@@ -8,6 +8,8 @@ void Game::Init()
 
     ResourceManager.LoadBasicResources();
 
+    character = Character(ResourceManager.model, ResourceManager.animations[0]);
+
     // Define the camera to look into our 3d world
     camera.position = {10.0f, 10.0f, 10.0f}; // Camera position
     camera.target = {0.0f, 0.0f, 0.0f};      // Camera looking at point
@@ -86,7 +88,6 @@ void Game::Update()
         UpdateLightValues(shader, lights[i]);
     }
 
-    std::cout << "Drawing!" << std::endl;
     Draw();
 
     framesCounter++;
@@ -105,14 +106,7 @@ void Game::Draw()
     DrawPlane(Vector3Zero(), {10.0f, 10.0f}, WHITE);
     DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, WHITE);
 
-    DrawModel(ResourceManager.model, {5, 1, 0}, 1.0f, WHITE);
-
-    std::cout << "Updating model animation with frame " << framesCounter << std::endl;
-    std::cout << "Name/FrameCount/BoneCount: " << ResourceManager.animations[0].name << " - " << ResourceManager.animations[0].frameCount << " - " << ResourceManager.animations[0].boneCount << std::endl;
-    std::cout << "MaterialCount: " << ResourceManager.model.materialCount << std::endl;
-
-    std::cout << "Is Model Anim Valid?: " << IsModelAnimationValid(ResourceManager.model, ResourceManager.animations[0]) << std::endl;
-    UpdateModelAnimation(ResourceManager.model, ResourceManager.animations[0], framesCounter);
+    character.Update(framesCounter);
 
     EndShaderMode();
 

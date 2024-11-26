@@ -3,6 +3,7 @@
 
 #include "TextManager.h"
 #include "ResourceManager.h"
+#include "Character.h"
 
 #include "external/rlights.h"
 #include "raymath.h"
@@ -11,9 +12,12 @@ class Game
 {
 public:
     int framesCounter = 0;
+    int animCounter = 0;
+
     float lastFps = 0.0f;
 
     ResourceManager ResourceManager;
+    Character character(Model model, ModelAnimation animation);
 
     Camera camera;
 
